@@ -131,10 +131,28 @@ export function PoolCard({ pool }: PoolCardProps) {
             href={poolUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#64748b] hover:text-[#3b82f6] text-[11px] transition-colors"
+            className="text-[10px] px-1.5 py-0.5 rounded bg-orange-500/10 text-orange-400 hover:bg-orange-500/20 transition-colors font-medium"
             title="Open on Meteora"
           >
-            ↗
+            Meteora ↗
+          </a>
+          <a
+            href={`https://birdeye.so/token/${pool.address}?chain=solana`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[10px] px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 transition-colors font-medium"
+            title="Open on Birdeye"
+          >
+            Birdeye ↗
+          </a>
+          <a
+            href={`https://solscan.io/account/${pool.address}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[10px] px-1.5 py-0.5 rounded bg-[#1e2028] text-[#64748b] hover:text-[#94a3b8] transition-colors font-medium"
+            title="Open on Solscan"
+          >
+            Solscan ↗
           </a>
 
           {/* Tags */}
