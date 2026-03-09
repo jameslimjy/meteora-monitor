@@ -5,6 +5,9 @@ export interface TokenInfo {
   decimals: number
   is_verified: boolean
   price: number
+  holders: number
+  market_cap: number
+  total_supply: number
 }
 
 export interface VolumeData {
@@ -16,6 +19,13 @@ export interface VolumeData {
 export interface FeesData {
   '24h': number
   '1h': number
+  '30m': number
+}
+
+export interface FeeTvlRatio {
+  '24h': number
+  '1h': number
+  '30m': number
 }
 
 export interface DLMMPool {
@@ -37,6 +47,7 @@ export interface DLMMPool {
   apy: number
   volume: VolumeData
   fees: FeesData
+  fee_tvl_ratio: FeeTvlRatio
   tags: string[]
   launchpad: string | null
   is_blacklisted: boolean
@@ -61,6 +72,7 @@ export interface DAMMPool {
   current_price: number
   volume: VolumeData
   fees: FeesData
+  fee_tvl_ratio?: FeeTvlRatio
   tags: string[]
   launchpad: string | null
   is_blacklisted: boolean
@@ -71,6 +83,7 @@ export type Pool = (
   | (DAMMPool & { poolType: 'DAMM_V2' })
 ) & {
   isNew?: boolean
+  openPositions?: number | null  // null = loading, undefined = not fetched
 }
 
 export interface Filters {
