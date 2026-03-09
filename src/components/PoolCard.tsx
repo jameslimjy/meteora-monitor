@@ -18,7 +18,8 @@ function formatPct(value: number): string {
 }
 
 function formatAge(createdAt: number): string {
-  const seconds = Math.floor(Date.now() / 1000 - createdAt)
+  // created_at from Meteora API is in milliseconds
+  const seconds = Math.floor((Date.now() - createdAt) / 1000)
   if (seconds < 60) return `${seconds}s ago`
   if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`
   if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`

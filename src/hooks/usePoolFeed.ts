@@ -151,8 +151,8 @@ export function usePoolFeed() {
   const dlmmCount = allPools.filter(p => p.poolType === 'DLMM').length
   const dammCount = allPools.filter(p => p.poolType === 'DAMM_V2').length
 
-  const oneHourAgo = Date.now() / 1000 - 3600
-  const recentCount = allPools.filter(p => p.created_at > oneHourAgo).length
+  const oneHourAgoMs = Date.now() - 3600 * 1000
+  const recentCount = allPools.filter(p => p.created_at > oneHourAgoMs).length
 
   return {
     pools: filteredPools,
